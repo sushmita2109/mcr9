@@ -33,7 +33,10 @@ export const VideoProvider = ({ children }) => {
     );
     videoDispatch({ type: "REMOVE_WATCH_LATER", payload: filterData });
   };
-  const createPlaylist = (name, desc, handleClose) => {
+  const createPlaylist = (name, desc, handleClose, filterData) => {
+    const data = videosState?.allVideos?.filter(
+      (video) => video._id == filterData
+    );
     videoDispatch({
       type: "CREATE_PLAYLIST",
       payload: {
@@ -41,6 +44,7 @@ export const VideoProvider = ({ children }) => {
         desc: desc,
         image:
           "https://daily.jstor.org/wp-content/uploads/2023/01/good_times_with_bad_music_1050x700.jpg",
+        filterData: [...data],
       },
     });
     handleClose();

@@ -17,7 +17,7 @@ const style = {
   p: 4,
 };
 
-export const CreatePlaylistModal = ({ open, handleClose }) => {
+export const CreatePlaylistModal = ({ open, handleClose, filterData }) => {
   const { createPlaylist, deletePlaylist } = useVideo();
   const [playlistName, setPlaylistName] = useState("");
   const [playlistDesc, setPlaylistDesc] = useState("");
@@ -53,7 +53,12 @@ export const CreatePlaylistModal = ({ open, handleClose }) => {
           </Box>
           <Button
             onClick={() =>
-              createPlaylist(playlistName, playlistDesc, handleClose)
+              createPlaylist(
+                playlistName,
+                playlistDesc,
+                handleClose,
+                filterData
+              )
             }
           >
             Create New Playlist

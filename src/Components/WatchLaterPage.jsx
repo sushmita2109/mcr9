@@ -53,7 +53,7 @@ export const WatchLaterPage = () => {
               </CardMedia>
               <IconButton
                 sx={{ alignSelf: "flex-start" }}
-                onClick={() => addToWatchLater(video)}
+                onClick={() => removeWatchLater(video)}
               >
                 <WatchLaterIcon sx={{ color: "blue" }} />
               </IconButton>

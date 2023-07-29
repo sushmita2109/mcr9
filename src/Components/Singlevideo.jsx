@@ -69,7 +69,11 @@ export const Singlevideo = ({ videoId }) => {
           openNotes={openNotes}
           handleCloseNotes={handleCloseNotes}
         />
-        <CreatePlaylistModal open={open} handleClose={handleClose} />
+        <CreatePlaylistModal
+          open={open}
+          handleClose={handleClose}
+          filterData={filterData._id}
+        />
       </Card>
       <Typography variant="h6">Notes</Typography>
       {parsedAllNotes?.map((note, idx) => (

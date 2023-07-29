@@ -11,6 +11,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useVideo } from "../Context/VideoContext";
 import { useEffect, useState } from "react";
 import { CreatePlaylistModal } from "./CreatePlaylistModal";
+import { Link } from "react-router-dom";
 
 export const PlaylistVideo = () => {
   const { videosState, videoDispatch, deletePlaylist } = useVideo();
@@ -39,20 +40,22 @@ export const PlaylistVideo = () => {
       {videosState?.allPlaylists ? (
         parsedAllPlaylist?.map((playlist, idx) => (
           <Card key={idx} sx={{ maxWidth: "350px" }}>
-            <CardMedia sx={{}}>
-              <img
-                src={playlist.image}
-                alt="cardimage"
-                style={{ height: "200px", width: "200px" }}
-              />
-            </CardMedia>
-            <Typography variant="h5"> {playlist.name}</Typography>
-            <Typography variant="h6">{playlist.desc}</Typography>
-            <CardActions>
-              <Button onClick={() => deletePlaylist(playlist)}>
-                Delete Playlist
-              </Button>
-            </CardActions>
+            <Link to={`/playlist/${playlist.name}`}>
+              <CardMedia>
+                <img
+                  src={playlist.image}
+                  alt="cardimage"
+                  style={{ height: "200px", width: "200px" }}
+                />
+              </CardMedia>
+              <Typography variant="h5"> {playlist.name}</Typography>
+              <Typography variant="h6">{playlist.desc}</Typography>
+              <CardActions>
+                <Button onClick={() => deletePlaylist(playlist)}>
+                  Delete Playlist
+                </Button>
+              </CardActions>
+            </Link>
           </Card>
         ))
       ) : (
