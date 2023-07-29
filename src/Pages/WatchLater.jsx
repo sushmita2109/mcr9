@@ -1,8 +1,8 @@
-import { LandingPage } from "../Components/LandingPage";
-import { SideBar } from "../Components/SideBar";
 import Grid from "@mui/material/Grid";
+import { SideBar } from "../Components/SideBar";
+import { WatchLaterPage } from "../Components/WatchLaterPage";
 
-export const HomePage = () => {
+export const WatchLater = () => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={2}>
@@ -10,7 +10,7 @@ export const HomePage = () => {
       </Grid>
 
       <Grid item xs={10}>
-        <LandingPage />
+        <WatchLaterPage />
       </Grid>
     </Grid>
   );
